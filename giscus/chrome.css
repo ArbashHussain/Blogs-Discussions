@@ -7,7 +7,17 @@ html {
 #__next main {
   font-family: var(--font-family-sans);
   font-weight: 300;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.75;
+  background-color: var(--color-canvas-default);
+}
+
+#__next main .gsc-main {
+  gap: 1.75rem;
+}
+
+#__next main .gsc-comments {
+  gap: 1.35rem;
 }
 
 #__next main .gsc-loading-image {
@@ -34,13 +44,18 @@ html {
   }
 }
 
-#__next main .gsc-reactions {
-  align-items: flex-start;
+/* Meta line: counts, attribution, sort. Left aligned, like a section label. */
+
+#__next main .gsc-reactions,
+#__next main .gsc-header,
+#__next main .gsc-left-header {
+  align-items: center;
+  justify-content: flex-start;
 }
 
 #__next main .gsc-reactions > div {
   justify-content: flex-start;
-  margin-top: 0.65rem;
+  margin-top: 0.55rem;
 }
 
 #__next main .gsc-reactions-count,
@@ -62,36 +77,184 @@ html {
 #__next main .gsc-reactions-count a:hover,
 #__next main .gsc-comments-count a:hover {
   color: var(--color-fg-default);
-}
-
-#__next main .gsc-header em {
-  font-family: var(--font-family-monospace);
-  font-style: normal;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-fg-subtle);
-}
-
-#__next main .gsc-header em a {
-  color: inherit;
   text-decoration: none;
 }
 
-#__next main .gsc-header em a:hover {
-  color: var(--color-fg-default);
+#__next main .gsc-header em {
+  display: none;
 }
 
-#__next main .BtnGroup {
-  border: 1px solid var(--color-border-default);
-  border-radius: 2px;
+#__next main .gsc-right-header.BtnGroup {
+  gap: 0.85rem;
+  border: 0;
+  border-radius: 0;
   background: transparent;
   padding: 0;
 }
 
-#__next main .BtnGroup-item,
-#__next main .BtnGroup-item .btn {
+#__next main .BtnGroup-item {
+  border: 0;
   border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+#__next main .BtnGroup-item .btn,
+#__next main .BtnGroup-item--selected .btn,
+#__next main .BtnGroup-item .btn:hover,
+#__next main .BtnGroup-item--selected .btn:hover {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  font-family: var(--font-family-monospace);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+}
+
+#__next main .BtnGroup-item--selected .btn,
+#__next main .BtnGroup-item .btn:hover {
+  color: var(--color-fg-default);
+}
+
+/* Composer: one hairline field, not a tabbed GitHub box. */
+
+#__next main .gsc-comment-box:not(.gsc-comment-box-is-reply),
+#__next main .gsc-comment-box-is-reply {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#__next main .gsc-comment .gsc-comment-box-tabs,
+#__next main .gsc-comment-box-tabs {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+#__next main .gsc-comment-box-tabs > div {
+  margin: 0 0 0.45rem;
+}
+
+#__next main .gsc-comment-box-tabs button {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0.15rem 0;
+  margin-right: 0.9rem;
+  font-family: var(--font-family-monospace);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+}
+
+#__next main .gsc-comment-box-tabs button.color-bg-canvas {
+  color: var(--color-fg-default);
+  background: transparent;
+  box-shadow: inset 0 -1px 0 var(--color-accent-fg);
+}
+
+#__next main .gsc-toolbar-item {
+  color: var(--color-fg-subtle);
+  border-radius: 2px;
+}
+
+#__next main .gsc-toolbar-item:hover,
+#__next main .gsc-toolbar-item:focus {
+  color: var(--color-fg-default);
+}
+
+#__next main .gsc-comment-box-main,
+#__next main .gsc-comment-box-bottom {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#__next main .gsc-comment-box-write,
+#__next main .gsc-comment-box-write:focus-within {
+  border: 0;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+#__next main .gsc-comment-box-textarea,
+#__next main .gsc-comment-box-textarea-extras,
+#__next main .gsc-comment-box-preview {
+  background: transparent;
+  border: 1px solid var(--color-border-default);
+  box-shadow: none;
+  color: var(--color-fg-default);
+}
+
+#__next main .gsc-comment-box-textarea {
+  border-bottom: 0;
+  border-radius: 2px 2px 0 0;
+  min-height: 7.25rem;
+  padding: 0.7rem 0.8rem;
+  font-family: var(--font-family-sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+#__next main .gsc-comment-box-textarea::placeholder {
+  color: var(--color-fg-subtle);
+}
+
+#__next main .gsc-comment-box-textarea:disabled {
+  background: transparent;
+  opacity: 1;
+  color: var(--color-fg-subtle);
+}
+
+#__next main .gsc-comment-box-textarea-extras {
+  border-top: 0;
+  border-radius: 0 0 2px 2px;
+}
+
+#__next main .gsc-comment-box-write:focus-within .gsc-comment-box-textarea,
+#__next main .gsc-comment-box-write:focus-within .gsc-comment-box-textarea-extras,
+#__next main .form-control:focus,
+#__next main .gsc-comment-box-textarea:focus {
+  border-color: var(--color-accent-fg);
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+#__next main .gsc-comment-box-preview {
+  border-radius: 2px;
+  border-bottom-width: 1px;
+  min-height: 7.25rem;
+  padding: 0.7rem 0.8rem;
+}
+
+#__next main .gsc-comment-box-markdown-hint,
+#__next main .gsc-comment-box-bottom > button.link-secondary {
+  font-family: var(--font-family-monospace);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-fg-subtle);
+}
+
+#__next main .gsc-comment-box-bottom > button.link-secondary:hover,
+#__next main .gsc-comment-box-markdown-hint:hover {
+  color: var(--color-fg-default);
+  text-decoration: none;
 }
 
 #__next main .btn {
@@ -102,10 +265,20 @@ html {
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  background: transparent;
+  color: var(--color-fg-muted);
+  border-color: var(--color-border-default);
+}
+
+#__next main .btn:hover {
+  background: var(--color-canvas-subtle);
+  border-color: var(--color-fg-subtle);
+  text-decoration: none;
 }
 
 #__next main .btn-primary,
 #__next main a.btn-primary {
+  padding: 0.7rem 1rem;
   background-color: var(--color-btn-primary-bg);
   color: var(--color-btn-primary-text);
   border-color: var(--color-btn-primary-border);
@@ -117,111 +290,50 @@ html {
 #__next main a.btn-primary:hover {
   background-color: var(--color-btn-primary-hover-bg);
   border-color: var(--color-btn-primary-hover-border);
+  color: var(--color-btn-primary-text);
   text-decoration: none;
 }
 
-#__next main .gsc-comment > div,
-#__next main .gsc-comment-box:not(.gsc-comment-box-is-reply),
-#__next main .gsc-pagination-button,
-#__next main .gsc-reactions-popover,
-#__next main .flash {
-  border-radius: 2px;
-  box-shadow: none;
+#__next main .btn-primary:disabled {
+  cursor: not-allowed;
+}
+
+/* Threads: dividers on the page, not floating cards. */
+
+#__next main .gsc-timeline {
+  gap: 0;
 }
 
 #__next main .gsc-comment > div {
-  background-color: var(--color-canvas-overlay);
-}
-
-#__next main .gsc-comment-box:not(.gsc-comment-box-is-reply) {
-  background-color: transparent;
-}
-
-#__next main .gsc-comment-box:not(.gsc-comment-box-is-reply):focus-within {
-  border-color: var(--color-accent-fg);
-}
-
-#__next main .gsc-comment-box-tabs {
-  background-color: transparent;
-  border-radius: 0;
-}
-
-#__next main .gsc-comment-box-tabs button {
+  background: transparent;
   border: 0;
+  border-bottom: 1px solid var(--color-border-default);
   border-radius: 0;
-  background-color: transparent;
-  box-shadow: none;
-  font-family: var(--font-family-monospace);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-fg-subtle);
-}
-
-#__next main .gsc-comment-box-tabs button.color-bg-canvas {
-  color: var(--color-fg-default);
-  background-color: transparent;
-  box-shadow: inset 0 -1px 0 var(--color-accent-fg);
-}
-
-#__next main .gsc-comment-box-textarea,
-#__next main .gsc-comment-box-textarea-extras {
-  border-color: transparent;
-  background-color: transparent;
-  box-shadow: none;
-  border-radius: 2px;
-}
-
-#__next main .gsc-comment-box-textarea {
-  border-bottom-style: solid;
-  font-weight: 300;
-  line-height: 1.7;
-}
-
-#__next main .gsc-comment-box-write:focus-within,
-#__next main .form-control:focus,
-#__next main .gsc-comment-box-textarea:focus {
-  border-color: transparent;
-  outline: none;
   box-shadow: none;
 }
 
-#__next main .gsc-comment-box-bottom > button.link-secondary {
-  font-family: var(--font-family-monospace);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-fg-subtle);
+#__next main .gsc-comment-header {
+  padding: 1.15rem 0 0;
+  gap: 0.65rem;
 }
 
-#__next main .gsc-comment-box-bottom > button.link-secondary:hover {
-  color: var(--color-fg-default);
+#__next main .gsc-comment-content {
+  padding: 0.45rem 0 0.15rem;
 }
 
-#__next main .gsc-reply-box {
-  background-color: transparent;
-  border-radius: 0;
+#__next main .gsc-comment-footer,
+#__next main .gsc-reply-footer {
+  margin: 0.35rem 0 1rem;
 }
 
-#__next main .gsc-reply-box > button {
-  border-radius: 2px;
-  border-color: var(--color-border-default);
-  background-color: transparent;
-  box-shadow: none;
-  font-weight: 300;
+#__next main .gsc-comment-reactions,
+#__next main .gsc-reply-reactions {
+  margin-left: 0;
+  justify-content: flex-start;
 }
 
-#__next main .gsc-reply-box > button:focus {
-  border-color: var(--color-accent-fg);
-  box-shadow: none;
-}
-
-#__next main .gsc-replies {
-  background-color: transparent;
-  border-radius: 0;
+#__next main .gsc-comment-replies-count {
+  margin-right: 0;
 }
 
 #__next main .gsc-tl-line {
@@ -230,12 +342,17 @@ html {
 
 #__next main .gsc-comment-author-avatar img,
 #__next main .gsc-reply-author-avatar img {
+  width: 22px;
+  height: 22px;
+  margin-right: 0.45rem;
   border-radius: 2px;
 }
 
 #__next main .gsc-comment-author-avatar span,
 #__next main .gsc-reply-author span {
   font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--color-fg-default);
   text-decoration: none;
 }
@@ -244,11 +361,13 @@ html {
 #__next main .gsc-reply-author > a.link-secondary,
 #__next main .gsc-comment-edited,
 #__next main .gsc-reply-edited,
-#__next main .gsc-comment-replies-count {
+#__next main .gsc-comment-replies-count,
+#__next main .gsc-comment-replies-count span {
   font-family: var(--font-family-monospace);
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.04em;
+  text-transform: none;
   text-decoration: none;
   color: var(--color-fg-subtle);
 }
@@ -261,48 +380,277 @@ html {
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--color-fg-subtle);
+  background: transparent;
 }
 
 #__next main .gsc-upvote-button:disabled {
   display: none;
 }
 
-#__next main .gsc-social-reaction-summary-item {
+/*
+ * GitHub keeps every reaction behind one smiley. Force that menu open as a
+ * row: thumbs up, thumbs down, heart, clap, insight.
+ * Clap is stored as Hooray and insight as Rocket. Discussions has no clap
+ * or lightbulb reaction. Laugh, confused, and eyes stay hidden.
+ */
+
+#__next main .gsc-reactions {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1rem;
+}
+
+#__next main .gsc-reactions > div {
+  margin-top: 0;
+}
+
+#__next main .gsc-reactions-button {
+  display: none;
+}
+
+#__next main .gsc-direct-reaction-buttons {
+  display: none;
+}
+
+#__next main .gsc-reactions-menu {
+  display: block;
+}
+
+#__next main .gsc-reactions-menu:not([open]) > .gsc-reactions-popover,
+#__next main .gsc-reactions-popover {
+  display: block !important;
+  visibility: visible !important;
+  position: static !important;
+  transform: none !important;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  opacity: 1;
+  overflow: visible;
+}
+
+#__next main .gsc-reactions-popover::before,
+#__next main .gsc-reactions-popover::after,
+#__next main .gsc-reactions-popover > p,
+#__next main .gsc-reactions-popover > .border-t {
+  display: none !important;
+  content: none;
+}
+
+#__next main .gsc-reactions-popover > div.m-2 {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+#__next main .gsc-emoji-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-border-default);
   border-radius: 2px;
-  height: 24px;
-  font-family: var(--font-family-monospace);
-  font-size: 11px;
+  background: transparent;
+  box-shadow: none;
+  line-height: 1;
+}
+
+#__next main .gsc-emoji-button:hover:not(:disabled),
+#__next main .gsc-emoji-button:focus-visible {
+  border-color: var(--color-fg-subtle);
+  background: var(--color-canvas-subtle);
+}
+
+#__next main .gsc-emoji-button.has-reacted {
+  color: var(--color-accent-fg);
+  border-color: var(--color-accent-fg);
+  background: var(--color-accent-subtle);
+}
+
+#__next main .gsc-emoji-button:disabled {
+  cursor: pointer;
+  opacity: 1;
+}
+
+#__next main .gsc-emoji-button .gsc-emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  line-height: 1;
+}
+
+#__next main .gsc-emoji-button[aria-label*="+1"] { order: 1; }
+#__next main .gsc-emoji-button[aria-label*="-1"] { order: 2; }
+#__next main .gsc-emoji-button[aria-label*="Love"] { order: 3; }
+#__next main .gsc-emoji-button[aria-label*="Hooray"] { order: 4; }
+#__next main .gsc-emoji-button[aria-label*="Rocket"] { order: 5; }
+
+#__next main .gsc-emoji-button[aria-label*="Laugh"],
+#__next main .gsc-emoji-button[aria-label*="Confused"],
+#__next main .gsc-emoji-button[aria-label*="Eyes"] {
+  display: none !important;
+}
+
+#__next main .gsc-emoji-button[aria-label*="Hooray"] .gsc-emoji,
+#__next main .gsc-emoji-button[aria-label*="Rocket"] .gsc-emoji {
+  font-size: 0;
+}
+
+#__next main .gsc-emoji-button[aria-label*="Hooray"] .gsc-emoji::after,
+#__next main .gsc-emoji-button[aria-label*="Rocket"] .gsc-emoji::after {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 15px;
+  line-height: 1;
+}
+
+#__next main .gsc-emoji-button[aria-label*="Hooray"] .gsc-emoji::after {
+  content: "👏";
+}
+
+#__next main .gsc-emoji-button[aria-label*="Rocket"] .gsc-emoji::after {
+  content: "💡";
+}
+
+/* Replies sit on a hairline, the way a blockquote does in a post. */
+
+#__next main .gsc-replies {
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--color-border-default);
+  border-radius: 0;
+  margin: 0 0 0.85rem;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+}
+
+#__next main .gsc-reply {
+  padding: 0.7rem 0 0.15rem;
+}
+
+#__next main .gsc-reply-box {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0.35rem 0 0.85rem;
+}
+
+#__next main .gsc-reply-box > button {
+  border-radius: 2px;
+  border: 1px solid var(--color-border-default);
+  background: transparent;
+  box-shadow: none;
+  padding: 0.55rem 0.75rem;
+  font-weight: 300;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-fg-subtle);
+}
+
+#__next main .gsc-reply-box > button:hover,
+#__next main .gsc-reply-box > button:focus {
+  border-color: var(--color-accent-fg);
+  background: transparent;
+  box-shadow: none;
+  color: var(--color-fg-default);
 }
 
 #__next main .gsc-pagination {
+  justify-content: flex-start;
+  margin: 0.5rem 0;
+  padding: 0;
   background-image: none;
 }
 
+#__next main .gsc-pagination-button {
+  align-items: flex-start;
+  padding: 0.7rem 0.9rem;
+  border-radius: 2px;
+  border: 1px solid var(--color-border-default);
+  background: transparent;
+  box-shadow: none;
+  font-family: var(--font-family-monospace);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Comment markdown follows the post prose, including the dark code blocks. */
+
 #__next main .markdown {
   font-weight: 300;
+  font-size: 0.9375rem;
   line-height: 1.75;
   color: var(--color-fg-muted);
-  font-size: 0.9375rem;
 }
 
 #__next main .markdown h1,
 #__next main .markdown h2,
 #__next main .markdown h3,
-#__next main .markdown h4 {
+#__next main .markdown h4,
+#__next main .markdown h5,
+#__next main .markdown h6 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
+  border: 0;
   font-family: "Crimson Pro", Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.01em;
+  line-height: 1.3;
   color: var(--color-fg-default);
+}
+
+#__next main .markdown h1 {
+  font-size: 1.5rem;
+}
+
+#__next main .markdown h2 {
+  font-size: 1.25rem;
+}
+
+#__next main .markdown h3 {
+  font-size: 1.125rem;
+}
+
+#__next main .markdown p,
+#__next main .markdown li {
+  color: var(--color-fg-muted);
 }
 
 #__next main .markdown a {
   color: var(--color-fg-default);
+  font-weight: 400;
+  text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-color: var(--color-fg-subtle);
 }
 
 #__next main .markdown a:hover {
   text-decoration-color: var(--color-fg-default);
+}
+
+#__next main .markdown strong {
+  font-weight: 500;
+  color: var(--color-fg-default);
+}
+
+#__next main .markdown hr {
+  height: 1px;
+  border: 0;
+  background: var(--color-border-default);
 }
 
 #__next main .markdown blockquote {
@@ -313,10 +661,12 @@ html {
   font-style: italic;
 }
 
-#__next main .markdown :not(pre) > code {
+#__next main .markdown code:not(pre > code),
+#__next main .markdown tt {
   font-family: var(--font-family-monospace);
   font-size: 0.85em;
   font-weight: 400;
+  color: var(--color-fg-default);
   background: var(--color-canvas-inset);
   border: 1px solid var(--color-border-default);
   border-radius: 2px;
@@ -324,18 +674,39 @@ html {
 }
 
 #__next main .markdown pre,
+#__next main .markdown .highlight pre,
 #__next main .markdown .highlight {
   background-color: #1c2128;
-  color: #e6edf3;
+  color: #adbac7;
   border: 1px solid #30363d;
   border-radius: 2px;
 }
 
-#__next main .markdown pre code {
+#__next main .markdown pre code,
+#__next main .markdown .highlight pre code {
   background: transparent;
   border: 0;
   padding: 0;
   color: inherit;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+#__next main .markdown table {
+  border-collapse: collapse;
+  background: transparent;
+}
+
+#__next main .markdown table th,
+#__next main .markdown table td {
+  border: 1px solid var(--color-border-default);
+  padding: 0.55rem 0.75rem;
+}
+
+#__next main .markdown table th {
+  font-weight: 500;
+  color: var(--color-fg-default);
+  background: var(--color-canvas-inset);
 }
 
 #__next main button:focus-visible,
@@ -343,4 +714,5 @@ html {
 #__next main summary:focus-visible {
   outline: 1px solid var(--color-accent-fg);
   outline-offset: 2px;
+  box-shadow: none;
 }
