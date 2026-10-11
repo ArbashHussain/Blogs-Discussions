@@ -74,9 +74,18 @@ html {
   color: var(--color-fg-subtle);
 }
 
-#__next main .gsc-reactions-count a:hover,
 #__next main .gsc-comments-count a:hover {
   color: var(--color-fg-default);
+  text-decoration: none;
+}
+
+/* The count is a link to the public discussion. Keep the label, drop the link. */
+#__next main .gsc-reactions-count a,
+#__next main .gsc-reactions-count a:hover,
+#__next main .gsc-reactions-count a:focus {
+  pointer-events: none;
+  cursor: default;
+  color: var(--color-fg-subtle);
   text-decoration: none;
 }
 
@@ -407,7 +416,7 @@ html {
 }
 
 #__next main .gsc-reactions-button {
-  display: none;
+  display: none !important;
 }
 
 #__next main .gsc-direct-reaction-buttons {
@@ -416,6 +425,13 @@ html {
 
 #__next main .gsc-reactions-menu {
   display: block;
+}
+
+/* A closed <details> does not render its menu. This keeps the emoji row painted. */
+#__next main .gsc-reactions-menu:not([open])::details-content {
+  content-visibility: visible !important;
+  height: auto !important;
+  display: block !important;
 }
 
 #__next main .gsc-reactions-menu:not([open]) > .gsc-reactions-popover,
